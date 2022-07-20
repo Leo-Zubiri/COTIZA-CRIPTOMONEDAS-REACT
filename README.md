@@ -1,3 +1,8 @@
+![](src/img/docs/final-app.png)
+
+![](src/img/docs/testing-app.png)
+---
+
 ## **Styled Components**
 
 Se crean componentes de css en lugar de usar una hoja de estilos global
@@ -95,3 +100,37 @@ export default useSelectMonedas
 const [moneda,SelectMonedas] = useSelectMonedas('Elige tu Moneda',monedas);
 // Sería muy parecido al hook de useState
 ```
+---
+## **Cryptocompare API**
+**API** - Aplication Programming Interface
+
+> Una API pone a disposicion recursos que estan alojados en otro servidor sin importar en que lenguaje fue escrito. Lo que importa es la respuesta de recursos que normalmente está en formato JSON.
+
+[**GO TO API**>>>](https://min-api.cryptocompare.com/)
+
+[**API DOCUMENTATION**](https://min-api.cryptocompare.com/documentation?key=Toplists&cat=TopTotalMktCapEndpointFull)
+
+```js
+
+// useEffect es un buen lugar para mandar a llamar una API
+
+  useEffect(() => { 
+      const consultarAPI = async () => {  
+          const url  = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
+          const response = await fetch(url);
+          const result = await response.json();
+      }
+
+      consultarAPI();
+
+  },[]);
+```
+
+---
+
+## **Spinner Cargando...**
+
+Elegir el spinner deseado 
+[Spinkit --->](https://tobiasahlin.com/spinkit/)
+
+Crear un componente y enlazar los estilos.
